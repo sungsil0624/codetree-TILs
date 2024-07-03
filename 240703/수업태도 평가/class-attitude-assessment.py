@@ -14,18 +14,22 @@ lowest_score = sorted_student[0][1]
 
 num_lowest_scores = sum(1 for name, score in sorted_student if score == lowest_score)
 
-second_score = sorted_student[num_lowest_scores][1]
-
-num_second_scores = sum(1 for name, score in sorted_student if score == second_score)
-
 score_list = []
 
 for name, score in sorted_student:
     score_list.append(score)
+    
+if len(set(score_list)) == 1:
+    print("Tie")
+    exit()
+
+second_score = sorted_student[num_lowest_scores][1]
+
+num_second_scores = sum(1 for name, score in sorted_student if score == second_score)
 
 if num_lowest_scores > 1 and num_second_scores < 2:
     print(sorted_student[num_lowest_scores][0])
-elif num_second_scores > 1 or len(set(score_list)) == 2:
+elif num_second_scores > 1:
     print("Tie")
 else:
     print(sorted_student[1][0])
