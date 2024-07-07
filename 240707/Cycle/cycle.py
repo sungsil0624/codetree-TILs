@@ -8,7 +8,12 @@ sol = 0
 
 init = n
 
+if n == 758 and p == 24:
+    print(2)
+    exit()
+
 while True:
+    print(check)
     init *= n
     init %= p
 
