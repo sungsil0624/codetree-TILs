@@ -13,7 +13,6 @@ if n == 758 and p == 24:
     exit()
 
 while True:
-    print(check)
     init *= n
     init %= p
 
