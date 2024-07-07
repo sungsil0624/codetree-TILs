@@ -5,20 +5,26 @@ n, x = map(int, sys.stdin.readline().strip().split())
 
 nums = list(map(int, sys.stdin.readline().strip().split()))
 
-q = deque(nums)
+q = deque()
+
+for i in range(n):
+    q.append((i, nums[i]))
 
 sol = 0
 
 while q:
-    front = q.popleft()
+    index, front = q.popleft()
 
-    max_value = max(q)
+    max_value = 0
+
+    for num in q:
+        max_value = max(max_value, num[1])
 
     if max_value > front:
-        q.append(front)
+        q.append((index, front))
         continue
     else:
         sol += 1
-        if front == nums[x]:
+        if index == x:
             print(sol)
             break
