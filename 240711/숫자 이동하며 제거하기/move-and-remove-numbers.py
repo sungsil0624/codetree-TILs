@@ -2,27 +2,26 @@ import sys
 from collections import deque
 
 n = int(sys.stdin.readline().strip())
-
 nums = list(map(int, sys.stdin.readline().strip().split()))
 
-q = deque(nums)
+q = deque((num, i) for i, num in enumerate(nums))
 
 sol = []
 
+current_pos = 0
+
 while q:
+    num, idx = q[current_pos]
+    sol.append(num)
+    q.remove((num, idx))
 
-    x = q.popleft()
+    if not q:
+        break
 
-
-
-    if x > 0:
-        q.rotate(-(x-1))
-    elif x == -1:
-        q.rotate(-1)
+    if num > 0:
+        current_pos = (current_pos + (num - 1)) % len(q)
     else:
-        q.rotate(x)
-
-    sol.append(x)
+        current_pos = (current_pos + num) % len(q)
 
 for i in sol:
     print(i, end=" ")
