@@ -13,8 +13,12 @@ while q:
 
     x = q.popleft()
 
+
+
     if x > 0:
         q.rotate(-(x-1))
+    elif x == -1:
+        q.rotate(-1)
     else:
         q.rotate(x)
 
