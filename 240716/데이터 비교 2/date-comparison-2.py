@@ -7,14 +7,24 @@ word = {}
 for _ in range(n):
     input_word = sys.stdin.readline().strip()
 
-    word[input_word] = 0
+    if input_word in word.keys():
+        word[input_word] += 1
+    else:
+        word[input_word] = 0
+
+check_word = {}
 
 for _ in range(n - 1):
-    parity_word = sys.stdin.readline().strip()
+    input_word2 = sys.stdin.readline().strip()
 
-    if parity_word in word.keys():
-        word[parity_word] += 1
+    if input_word2 in check_word.keys():
+        check_word[input_word2] += 1
+    else:
+        check_word[input_word2] = 0
 
+$0
 for k, v in word.items():
-    if v == 0:
+    if k not in check_word.keys():
+        print(k)
+    elif k in check_word.keys() and v != check_word[k]:
         print(k)
