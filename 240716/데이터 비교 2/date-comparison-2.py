@@ -22,7 +22,6 @@ for _ in range(n - 1):
     else:
         check_word[input_word2] = 0
 
-$0
 for k, v in word.items():
     if k not in check_word.keys():
         print(k)
