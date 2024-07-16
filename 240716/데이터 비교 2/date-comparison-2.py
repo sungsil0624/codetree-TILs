@@ -13,7 +13,7 @@ for _ in range(n - 1):
     parity_word = sys.stdin.readline().strip()
 
     if parity_word in word.keys():
-        word[parity_word] = 1
+        word[parity_word] += 1
 
 for k, v in word.items():
     if v == 0:
