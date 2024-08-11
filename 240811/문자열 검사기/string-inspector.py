@@ -5,17 +5,24 @@ q = deque()
 
 input_str = sys.stdin.readline().strip()
 
-for i in input_str:
-    if i == "(":
-        q.append(i)
-    elif q and i == ")" and q[-1] == "(":\
-        q.pop()
-    elif i == "[":
-        q.append(i)
-    elif q and q[-1] == "[":
-        q.pop()
+check = True
 
-if not q:
+for i in input_str:
+    if i == "(" or i == "[":
+        q.append(i)
+    elif i == ")" or i == "]":
+        if not q:
+            check = False
+            break
+        x = q.pop()
+        if i == ")" and not x == "(":
+            check = False
+            break
+        if i == "]" and not x == "[":
+            check = False
+            break
+
+if not q and check:
     print(1)
 else:
     print(0)
