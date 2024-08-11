@@ -8,7 +8,7 @@ input_str = sys.stdin.readline().strip()
 for i in input_str:
     if i == "(":
         q.append(i)
-    elif i == ")" and q[-1] == "(":
+    elif q and i == ")" and q[-1] == "(":
         if q:
             q.pop()
     elif i == "[":
