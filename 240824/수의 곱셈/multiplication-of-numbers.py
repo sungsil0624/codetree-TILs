@@ -1,13 +1,16 @@
 import sys
 
-num = list(map(int,sys.stdin.readline().strip().split()))
+num = list(map(int, sys.stdin.readline().strip().split()))
 
 sol = 1
 
-for i in num:
-    if i % 2 == 1:
-        sol *= i
-if sol == 1:
-    print(max(num))
-else:
-    print(sol)
+num.sort()
+
+for i in range(2,-1,-1):
+    if i == 2:
+        sol = num[i]
+    else:
+        if num[i] % 2 == 1:
+            sol *= num[i]
+
+print(sol)
