@@ -7,4 +7,7 @@ sol = 1
 for i in num:
     if i % 2 == 1:
         sol *= i
-print(sol)
+if sol == 1:
+    print(max(num))
+else:
+    print(sol)
